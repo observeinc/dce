@@ -32,7 +32,9 @@ resource "aws_iam_policy_attachment" "user" {
   roles      = [aws_iam_role.user.name]
 
   lifecycle {
-    ignore_changes = true
+    ignore_changes = [
+      roles,
+    ]
   }
 }
 
@@ -71,6 +73,8 @@ resource "aws_iam_policy_attachment" "admin" {
   roles      = [aws_iam_role.admin.name]
 
   lifecycle {
-    ignore_changes = true
+    ignore_changes = [
+      roles,
+    ]
   }
 }
