@@ -34,6 +34,7 @@ resource "aws_iam_policy_attachment" "user" {
   lifecycle {
     ignore_changes = [
       roles,
+      users,
     ]
   }
 }
