@@ -30,6 +30,10 @@ resource "aws_iam_policy_attachment" "user" {
 
   policy_arn = aws_iam_policy.user.arn
   roles      = [aws_iam_role.user.name]
+
+  lifecycle {
+    ignore_changes = true
+  }
 }
 
 
@@ -65,4 +69,8 @@ resource "aws_iam_policy_attachment" "admin" {
 
   policy_arn = aws_iam_policy.admin.arn
   roles      = [aws_iam_role.admin.name]
+
+  lifecycle {
+    ignore_changes = true
+  }
 }
