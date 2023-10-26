@@ -21,7 +21,7 @@ module "update_principal_policy" {
     PRINCIPAL_POLICY_S3_KEY        = aws_s3_bucket_object.principal_policy.key
     PRINCIPAL_IAM_DENY_TAGS        = join(",", var.principal_iam_deny_tags)
     ALLOWED_REGIONS                = join(",", var.allowed_regions)
-    PRINCIPAL_MAX_SESSION_DURATION = 14400
+    PRINCIPAL_MAX_SESSION_DURATION = 28800 // Original Default = 4 hours (14400 seconds)
     TAG_ENVIRONMENT                = var.namespace == "prod" ? "PROD" : "NON-PROD"
     TAG_APP_NAME                   = lookup(var.global_tags, "AppName")
   }
