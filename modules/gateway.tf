@@ -247,3 +247,8 @@ resource "aws_cloudwatch_log_group" "gateway_api_access" {
   name              = "API-Gateway-Access-Logs_${aws_api_gateway_rest_api.gateway_api.id}/${local.stage_name}"
   retention_in_days = var.cloudwatch_log_retention
 }
+
+output "api_execute_admin_policy_arn" {
+  value       = aws_iam_policy.api_execute_admin.arn
+  description = "ARN of the API execute admin policy"
+}
